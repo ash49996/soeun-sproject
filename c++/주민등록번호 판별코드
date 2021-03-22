@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	char identity[14];
+	int region_num = 0;
+	cout << "주민등록번호 13자리'-'없이 입력하세요:";
+	cin >> identity;
+		if(identity[6] % 2 == 1)
+			cout << "남자" << endl;
+		else
+			cout << "여자" << endl;
+		int year = (identity[0] - 48) * 10 + (identity[1] - '0');
+		year += identity[6] <= '2' ? 1900 : 2000;
+		cout << "출생연도:" << year << endl;
+		cout << "나이:" << 2021 - year + 1 << endl;
+		cout << "출생지역: ";
+		region_num = (identity[7] - '0') * 10 + (identity[8] - '0');
+		if (region_num >= 0 && region_num <= 8)
+			cout << "서울";
+		else if(region_num >= 9 && region_num <= 12)
+			cout << "부산";
+		else if(region_num >= 13 && region_num <= 15)
+			cout << "인천";
+		else if(region_num >= 16 && region_num <= 25)
+			cout << "경기";
+		else if(region_num >= 26 && region_num <= 34)
+			cout << "강원";
+		else if(region_num >= 35 && region_num <= 39)
+			cout << "충청북도";
+		else if(region_num >= 40 && region_num <= 47)
+			cout << "충청남도";
+		else if(region_num >= 48 && region_num <= 54)
+			cout << "전라북도";
+		else if(region_num >= 55 && region_num <= 66)
+			cout << "전라남도";
+		else if(region_num >= 67 && region_num <= 90)
+			cout << "경상";
+		else
+			cout << "잘못된 주민등록번호 입니다.";
+}
